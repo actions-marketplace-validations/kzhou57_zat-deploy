@@ -1,10 +1,32 @@
-# action.yml
 name: 'Zendesk App Tools - Deploy Apps'
-author: 'Thomas Verschoren'
-description: 'Create or Update an existing app in a Zendesk instance. Requires a .zat file.'
+author: 'Kevin Zhou'
+description: 'Create or Update an existing app in a Zendesk instance.'
 branding:
   icon: 'arrow-up-circle'  
   color: 'yellow'
+inputs:
+  app_folder:
+    description: 'The folder of the app to be deployed.'
+    required: false
+    default: 'app'
+  subdomain:
+    description: 'The subdomain of the Zendesk instance.'
+    required: true
+  username:
+    description: 'The username of the Zendesk instance.'
+    required: true
+  password:
+    description: 'The password of the Zendesk instance.'
+    required: true
+  app_id:
+    description: 'The app id of the Zendesk instance.'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    APP_FOLDER: ${{ inputs.app_folder }}
+    ZENDESK_SUBDOMAIN: ${{ inputs.subdomain }}
+    ZENDESK_USERNAME: ${{ inputs.username }}
+    ZENDESK_PASSWORD: ${{ inputs.password }}
+    ZENDESK_APP_ID: ${{ inputs.app_id }}
