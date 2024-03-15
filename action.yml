@@ -1,6 +1,6 @@
-name: 'Zendesk App Tools - Deploy Apps'
+name: 'Yet Another Zendesk App Deploy'
 author: 'Kevin Zhou'
-description: 'Create or Update an existing app in a Zendesk instance.'
+description: 'Deploy zendesk app to a Zendesk instance with input parameters.'
 branding:
   icon: 'arrow-up-circle'  
   color: 'yellow'
